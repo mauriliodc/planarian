@@ -1,4 +1,4 @@
-# planr
+# planarian
 ![alt tag](http://www.weinberg.northwestern.edu/images/research/huge.101.509767.JPG)
 
 simple distance map based planner for mobile robots
