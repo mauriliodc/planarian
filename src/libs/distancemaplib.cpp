@@ -26,6 +26,8 @@ void ComputeDistanceMap(const DistanceMapImage src, DistanceMapImage& dst, bool 
             if(_value==0){
                 _c.point.x = j;
                 _c.point.y = i;
+                _c.parent.x= j;
+                _c.parent.y= i;
                 _c.value = 0;
                 _container.push(_c);
                 dst.at<ushort>(_c.point) = 0;
@@ -50,11 +52,13 @@ void ComputeDistanceMap(const DistanceMapImage src, DistanceMapImage& dst, bool 
         _container.pop();
         for(int i =0;i<_eightExpansion.size();i++){
             _expanded_point = _cc.point +_eightExpansion.at(i).point ;
-            _updated_value = _value + _eightExpansion.at(i).value;
+            //_updated_value = _value + _eightExpansion.at(i).value;
+            _updated_value = (pow((_cc.parent.x - _expanded_point.x),2)+pow((_cc.parent.y - _expanded_point.y),2));
             if( _expanded_point.x > 0 &&_expanded_point.x < _cols && _expanded_point.y > 0 && _expanded_point.y < _rows ){
                 if( dst.at<ushort>(_expanded_point) !=0 && dst.at<ushort>(_expanded_point) > _updated_value){
                     dst.at<ushort>(_expanded_point) = _updated_value;
                     current.point= _expanded_point;
+                    current.parent=_cc.parent;
                     current.value=_updated_value;
                     _container.push(current);
                 }

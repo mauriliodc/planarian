@@ -12,6 +12,7 @@ using namespace std;
 
 struct Cell{
     Point point;
+    Point parent;
     ushort value;
 };
 

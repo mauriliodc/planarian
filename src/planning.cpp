@@ -7,8 +7,8 @@ int main(int argc, char** argv){
     ComputeDistanceMap(source, destination);
     Mat3f plan;
     ComputePath(cv::Point(10,10),cv::Point(540,340),destination,plan);
-    imshow("Plan",plan);
-    waitKey(0);
+//    imshow("Plan",plan);
+//   waitKey(0);
     return 0;
 }
 
