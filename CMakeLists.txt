@@ -22,3 +22,6 @@ target_link_libraries(baseplanner ${OpenCV_LIBS} planutils)
 
 add_executable(planning src/planning.cpp )
 target_link_libraries(planning distancemap baseplanner)
+
+add_executable(clickplan src/clickplan.cpp )
+target_link_libraries(clickplan distancemap baseplanner)

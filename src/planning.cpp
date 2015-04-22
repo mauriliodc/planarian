@@ -9,6 +9,7 @@ int main(int argc, char** argv){
     ComputePath(cv::Point(10,10),cv::Point(540,340),destination,plan);
 //    imshow("Plan",plan);
 //   waitKey(0);
+
     return 0;
 }
 
